@@ -21,7 +21,7 @@ require 'spec_helper'
 				person = Person.new "joe", "bloggs", "1 Jan 1990"
 				book.add person
 				book.remove "joe"
-				expect(book.addressbook).to eq([])
+				expect(book.addressbook).not_to include person
 			end
   	end
 	end

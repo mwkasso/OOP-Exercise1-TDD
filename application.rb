@@ -65,10 +65,6 @@ class AddressBook
 	end
 
 	def remove(name)
-		@addressbook.each_with_index do |value, index| 
-			if value.first_name == name.capitalize
-				@addressbook.delete_at(index)
-			end
-		end
+		@addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
 	end
 end
