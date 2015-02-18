@@ -35,13 +35,40 @@ class Person
 		return "#{fullname} was born on #{@dob}.\n Their email address are: #{@emails}. \n Their phone numbers are #{@phone_numbers}"
 	end
 
-end# FamilyMember class
+end
+
+# FamilyMember class
 
 class FamilyMember < Person
 	attr_accessor :relationship
 	# *args splat parse as many args as you want
-	def initialize(relationship="relationship" , *args)
+	def initialize(relationship = "relative" ,*args)
 		@relationship = relationship
 		super
+	end
+end
+
+class AddressBook
+	attr_reader :addressbook
+
+	def initialize
+		@addressbook = []
+	end
+
+	def add(person)
+		if person.class <= Person
+			@addressbook << person
+		else
+			# raise "error message" can also work
+			raise 'Input is not a person'
+		end
+	end
+
+	def remove(name)
+		@addressbook.each_with_index do |value, index| 
+			if value.first_name == name.capitalize
+				@addressbook.delete_at(index)
+			end
+		end
 	end
 end
