@@ -1,22 +1,22 @@
 require 'Date'
 
 class Person
-	attr_accessor :dob, :first_name, :surname
-	attr_reader :emails, :phone_numbers
-	def initialize(name,surname,dob)
-		@dob = Date.parse(dob)
-		@first_name = name.capitalize
-		@surname = surname.capitalize
-		@emails = []
-		@phone_numbers = []
-	end
+  attr_accessor :dob, :first_name, :surname
+  attr_reader :emails, :phone_numbers
+  def initialize(name,surname,dob = nil)
+    @dob = Date.parse(dob) if dob !=nil
+    @first_name = name.capitalize
+    @surname = surname.capitalize
+    @emails = []
+    @phone_numbers = [1]
+  end
 
-	def fullname
-		"#{@first_name} #{@surname}"
-	end
+  def fullname
+    "#{@first_name} #{@surname}"
+  end
 
-	def add_emails(email)
-		@emails << email
+  def add_emails(email)
+    @emails << email
 	end
 
 	def remove_email(position)
