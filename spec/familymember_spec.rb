@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "FamilyMember" do
   let(:familymember) {familymember = FamilyMember.new "joe", "bloggs", "1 Jan 1990"}
     describe "Family member should inherit from person" do

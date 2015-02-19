@@ -3,12 +3,13 @@ require 'Date'
 class Person
   attr_accessor :dob, :first_name, :surname
   attr_reader :emails, :phone_numbers
+
   def initialize(name,surname,dob = nil)
     @dob = Date.parse(dob) if dob !=nil
     @first_name = name.capitalize
     @surname = surname.capitalize
     @emails = []
-    @phone_numbers = [1]
+    @phone_numbers = []
   end
 
   def fullname
@@ -19,7 +20,6 @@ class Person
     @emails << email
   end
 
-<<<<<<< HEAD
   def remove_email(position)
     @emails.delete_at(position)
   end
@@ -27,7 +27,7 @@ class Person
   def add_phone(phone)
     @phone_numbers << phone
   end
-=======
+
 	def remove_email(position)
 		@emails.delete_at(position)
 	end
@@ -35,7 +35,6 @@ class Person
 	def add_phone(phone)
 		@phone_numbers << phone
 	end
->>>>>>> 7177c99680cf6aee008401177099f492b71d26b2
 
   def remove_phone(position)
     @phone_numbers.delete_at(position)
@@ -48,7 +47,6 @@ class Person
 end
 
 # FamilyMember class
-
 class FamilyMember < Person
   attr_accessor :relationship
   # *args splat parse as many args as you want
@@ -57,6 +55,7 @@ class FamilyMember < Person
     super
   end
 end
+
 
 class AddressBook
   attr_reader :addressbook
@@ -74,14 +73,15 @@ class AddressBook
     end
   end
 
-<<<<<<< HEAD
   def remove(name)
     @addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
   end
-end
-=======
+
 	def remove(name)
 		@addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
 	end
 end
->>>>>>> 7177c99680cf6aee008401177099f492b71d26b2
+
+# add a load yaml methods into addressbook
+# load all that into address book
+# insert person into yaml file

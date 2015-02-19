@@ -28,4 +28,11 @@ require 'spec_helper'
         expect(book.addressbook).not_to include person
       end
     end
+
+    describe "Load yaml file" do
+      it "file variable must a File class" do
+        expect(book.file).to be_a(File)
+      end
+      
+    end
   end
