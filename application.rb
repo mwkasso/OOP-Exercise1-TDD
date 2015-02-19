@@ -17,7 +17,7 @@ class Person
 
   def add_emails(email)
     @emails << email
-	end
+  end
 
 	def remove_email(position)
 		@emails.delete_at(position)
