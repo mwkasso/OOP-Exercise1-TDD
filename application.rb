@@ -1,5 +1,6 @@
 require 'Date'
-
+require 'yaml'
+#require_relative
 class Person
   attr_accessor :dob, :first_name, :surname
   attr_reader :emails, :phone_numbers
@@ -80,8 +81,24 @@ class AddressBook
 	def remove(name)
 		@addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
 	end
+
+  def file
+    @file = File.open('phonebook.yaml')
+  end
+
+  def load
+    data = YAML.load(file)
+    data["people"].each_with_index do |x,i|
+      person = Person.new(data["people"][i] ["fname"], data["people"][i] ["surname"], data["people"][i] ["dob"])
+      #email
+      #phone
+      addressbook << person
+    end
+  end
 end
 
 # add a load yaml methods into addressbook
 # load all that into address book
 # insert person into yaml file
+# use your phonebook project to recap everything youve learned
+# 
