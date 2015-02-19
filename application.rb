@@ -22,7 +22,7 @@ class Person
 	def remove_email(position)
 		@emails.delete_at(position)
 	end
-
+	
 	def add_phone(phone)
 		@phone_numbers << phone
 	end
