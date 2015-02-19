@@ -1,31 +1,31 @@
 require 'spec_helper'
 
-	describe "AddressBook" do
+  describe "AddressBook" do
 
-		#let(symbol) {variable = class instance}
-		let(:book) {book = AddressBook.new}
-		let(:person) {person = Person.new "joe", "bloggs", "1 Jan 1990"}
+    #let(symbol) {variable = class instance}
+    let(:book) {book = AddressBook.new}
+    let(:person) {person = Person.new "joe", "bloggs", "1 Jan 1990"}
 
-		describe "Address book should contain person entries" do
+    describe "Address book should contain person entries" do
 
-			it "Should store Person in an array" do
-				expect(book.addressbook).to eq([])
-			end
+      it "Should store Person in an array" do
+        expect(book.addressbook).to eq([])
+      end
 
-			it "Should add person into the address book" do
+      it "Should add person into the address book" do
 				
-				book.add person
-				expect(book.addressbook).to eq([person])
-			end
+        book.add person
+        expect(book.addressbook).to eq([person])
+      end
 
-			it "Should give an error if a class is not a Person or its subclasses" do
-				expect{book.add"Not a person"}.to raise_error
-			end
+      it "Should give an error if a class is not a Person or its subclasses" do
+        expect{book.add"Not a person"}.to raise_error
+      end
 			
-			it "Should remove a person based on first name entered" do
-				book.add person
-				book.remove "joe"
-				expect(book.addressbook).not_to include person
-			end
-  	end
-	end
+      it "Should remove a person based on first name entered" do
+        book.add person
+        book.remove "joe"
+        expect(book.addressbook).not_to include person
+      end
+    end
+  end
