@@ -19,6 +19,7 @@ class Person
     @emails << email
   end
 
+<<<<<<< HEAD
   def remove_email(position)
     @emails.delete_at(position)
   end
@@ -26,6 +27,15 @@ class Person
   def add_phone(phone)
     @phone_numbers << phone
   end
+=======
+	def remove_email(position)
+		@emails.delete_at(position)
+	end
+	
+	def add_phone(phone)
+		@phone_numbers << phone
+	end
+>>>>>>> 7177c99680cf6aee008401177099f492b71d26b2
 
   def remove_phone(position)
     @phone_numbers.delete_at(position)
@@ -64,7 +74,14 @@ class AddressBook
     end
   end
 
+<<<<<<< HEAD
   def remove(name)
     @addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
   end
 end
+=======
+	def remove(name)
+		@addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
+	end
+end
+>>>>>>> 7177c99680cf6aee008401177099f492b71d26b2
