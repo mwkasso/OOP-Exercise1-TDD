@@ -86,6 +86,7 @@ class AddressBook
     @file = File.open(file)
   end
 
+
   def load
     if @file != nil
     data = YAML.load(@file)
