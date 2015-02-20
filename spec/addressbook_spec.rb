@@ -5,11 +5,9 @@ require 'spec_helper'
     #let(symbol) {variable = class instance}
     let(:book) {book = AddressBook.new}
     let(:person) {person = Person.new "joe", "bloggs", "1 Jan 1990"}
-    
     let(:data) {data = YAML.load(File.open('phonebook.yaml'))}
     let(:personentry1) {data["people"][0] ["fname"]}
     let(:personentry2) {data["people"][1] ["fname"]}
-
     describe "Address book should contain person entries" do
 
       it "Should store Person in an array" do
@@ -35,13 +33,13 @@ require 'spec_helper'
 
     describe "Load yaml file" do
       it "file variable must a File class" do
-        expect(book.file).to be_a(File)
+        expect(book.file('phonebook.yaml')).to be_a(File)
       end
       it "Should load people from the file into the addressbook" do
+        book.file('phonebook.yaml')
         book.load
         expect(book.addressbook[0].first_name).to eq(personentry1)
         expect(book.addressbook[1].first_name).to eq(personentry2)
-
       end
     end
   end
