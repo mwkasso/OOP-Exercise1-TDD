@@ -1,5 +1,6 @@
 require 'Date'
 require 'yaml'
+require 'pry'
 #require_relative
 class Person
   attr_accessor :dob, :first_name, :surname
@@ -19,24 +20,22 @@ class Person
 
   def add_emails(email)
     raise 'Incorrect format of email' if email.match(/\w+\@\w+\.((com)|(co\.uk))$/) ==nil
-    
     @emails << email
   end
 
   def remove_email(position)
     @emails.delete_at(position)
   end
-
-  def add_phone(phone)
-    @phone_numbers << phone
-  end
-
-	def remove_email(position)
-		@emails.delete_at(position)
-	end
 	
 	def add_phone(phone)
+    
+    if phone.match(/((020[\d]{8})|(07[\d]{9}))/) == nil 
+      raise 'Incorrect format of phone number'
+    end
+    
+    
 		@phone_numbers << phone
+
 	end
 
   def remove_phone(position)
@@ -79,10 +78,6 @@ class AddressBook
   def remove(name)
     @addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
   end
-
-	def remove(name)
-		@addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
-	end
 
   def file(file)
     @file = File.open(file)

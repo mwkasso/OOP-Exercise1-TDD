@@ -41,9 +41,7 @@ require 'spec_helper'
       it "Should raise an error if email is in the wrong format" do
         expect{person.add_emails"This is a wrong email"}.to raise_error
       end
-      it "Should raise an error if phone is in the wrong format" do
-        expect{person.add_phone"This is a wrong phone"}.to raise_error
-      end
+      
     end
 
     describe "The person will have one or more phone numbers" do
@@ -60,6 +58,9 @@ require 'spec_helper'
         person.add_phone phone2
         person.remove_phone(0)
         expect(person.phone_numbers).to eq([phone2])
+      end
+      it "Should raise an error if phone is in the wrong format" do
+        expect{person.add_phone"This is a wrong phone"}.to raise_error
       end
     end
 
