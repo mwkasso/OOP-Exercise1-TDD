@@ -20,6 +20,7 @@ class Person
   def add_emails(email)
     if email.match(/.*@.*(\.com|\.co\.uk)/)
     @emails << email
+    
     end
   end
 
