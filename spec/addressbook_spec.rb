@@ -50,5 +50,11 @@ require 'spec_helper'
         expect(book.addressbook[0].emails).to eq(emailsentry1)
         expect(book.addressbook[1].emails).to eq(emailsentry2)        
       end
+      it "Should load phones into person entries from file" do
+        book.file('phonebook.yaml')
+        book.load
+        expect(book.addressbook[0].phones).to eq(phonesentry1)
+        expect(book.addressbook[1].phones).to eq(phonesentry2)        
+      end
     end
   end
