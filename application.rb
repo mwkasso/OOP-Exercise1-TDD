@@ -28,14 +28,8 @@ class Person
   end
 	
 	def add_phone(phone)
-    
-    if phone.match(/((020[\d]{8})|(07[\d]{9}))/) == nil 
-      raise 'Incorrect format of phone number'
-    end
-    
-    
+    raise 'Incorrect format of phone number' unless phone.match(/((020[\d]{8})|(07[\d]{9}))/) 
 		@phone_numbers << phone
-
 	end
 
   def remove_phone(position)
@@ -45,7 +39,6 @@ class Person
   def to_s
     return "#{fullname} was born on #{@dob}.\n Their email address are: #{@emails}. \n Their phone numbers are #{@phone_numbers}"
   end
-
 end
 
 # FamilyMember class
