@@ -18,8 +18,9 @@ class Person
   end
 
   def add_emails(email)
-    if email
+    if email.match(/.*@.*(\.com|\.co\.uk)/)
     @emails << email
+    end
   end
 
   def remove_email(position)
