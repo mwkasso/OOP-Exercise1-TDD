@@ -38,6 +38,9 @@ require 'spec_helper'
         person.remove_email(0)
         expect(person.emails).to eq([email2])
       end
+      it "Should raise an error if email is in the wrong format" do
+        expect{person.add_emails"This is a wrong email"}.to raise_error
+      end
     end
 
     describe "The person will have one or more phone numbers" do
