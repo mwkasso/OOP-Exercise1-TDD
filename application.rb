@@ -91,7 +91,9 @@ class AddressBook
     data = YAML.load(@file)
     data["people"].each_with_index do |x,i|
       person = Person.new(data["people"][i] ["fname"], data["people"][i] ["surname"], data["people"][i] ["dob"])
-      #email
+      data["people"][i] ["emails"].each do |x| 
+        person.add_emails(x)
+      end
       #phone
       addressbook << person
     end
