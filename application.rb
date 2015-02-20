@@ -18,7 +18,8 @@ class Person
   end
 
   def add_emails(email)
-    raise 'Incorrect format of email' if email.match(/.*\@.*((com)$|(co\.uk))$/) ==nil
+    raise 'Incorrect format of email' if email.match(/\w+\@\w+\.((com)|(co\.uk))$/) ==nil
+    
     @emails << email
   end
 
