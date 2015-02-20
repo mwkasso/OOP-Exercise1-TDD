@@ -10,6 +10,8 @@ require 'spec_helper'
     let(:personentry2) {data["people"][1] ["fname"]}
     let(:emailsentry1) {data["people"][0] ["emails"]}
     let(:emailsentry2) {data["people"][1] ["emails"]}
+    let(:phonesentry1) {data["people"][0] ["phones"]}
+    let(:phonesentry2) {data["people"][1] ["phones"]}
 
     describe "Address book should contain person entries" do
 
@@ -53,8 +55,8 @@ require 'spec_helper'
       it "Should load phones into person entries from file" do
         book.file('phonebook.yaml')
         book.load
-        expect(book.addressbook[0].phones).to eq(phonesentry1)
-        expect(book.addressbook[1].phones).to eq(phonesentry2)        
+        expect(book.addressbook[0].phone_numbers).to eq(phonesentry1)
+        expect(book.addressbook[1].phone_numbers).to eq(phonesentry2)        
       end
     end
   end
