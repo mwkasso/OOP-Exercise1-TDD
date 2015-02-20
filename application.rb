@@ -97,15 +97,9 @@ class AddressBook
       data["people"][i] ["phones"].each do |x| 
         person.add_phone(x)
       end
-      #phone
       addressbook << person
     end
     end
   end
 end
-
-# add a load yaml methods into addressbook
-# load all that into address book
 # insert person into yaml file
-# use your phonebook project to recap everything youve learned
-# Tidy it up, and add some comments explaining any complex parts
