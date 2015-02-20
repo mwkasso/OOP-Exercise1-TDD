@@ -18,6 +18,7 @@ class Person
   end
 
   def add_emails(email)
+    if email.
     @emails << email
   end
 
