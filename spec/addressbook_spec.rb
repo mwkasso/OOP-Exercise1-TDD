@@ -41,5 +41,6 @@ require 'spec_helper'
         expect(book.addressbook[0].first_name).to eq(personentry1)
         expect(book.addressbook[1].first_name).to eq(personentry2)
       end
+      it "Should "
     end
   end
