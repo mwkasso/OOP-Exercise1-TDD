@@ -94,6 +94,9 @@ class AddressBook
       data["people"][i] ["emails"].each do |x| 
         person.add_emails(x)
       end
+      data["people"][i] ["phones"].each do |x| 
+        person.add_emails(x)
+      end
       #phone
       addressbook << person
     end
