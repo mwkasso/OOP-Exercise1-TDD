@@ -8,6 +8,9 @@ require 'spec_helper'
     let(:data) {data = YAML.load(File.open('phonebook.yaml'))}
     let(:personentry1) {data["people"][0] ["fname"]}
     let(:personentry2) {data["people"][1] ["fname"]}
+    let(:emailsentry1) {data["people"][0] ["emails"]}
+    let(:emailsentry2) {data["people"][1] ["emails"]}
+
     describe "Address book should contain person entries" do
 
       it "Should store Person in an array" do
@@ -41,6 +44,11 @@ require 'spec_helper'
         expect(book.addressbook[0].first_name).to eq(personentry1)
         expect(book.addressbook[1].first_name).to eq(personentry2)
       end
-      it "Should "
+      it "Should load emails into person entries from file" do
+        book.file('phonebook.yaml')
+        book.load
+        expect(book.addressbook[0].emails).to eq(emailsentry1)
+        expect(book.addressbook[1].emails).to eq(emailsentry2)        
+      end
     end
   end
