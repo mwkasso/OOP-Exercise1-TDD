@@ -3,10 +3,12 @@ require 'yaml'
 class AddressBook
   attr_reader :addressbook
 
+  # Initialize
   def initialize
     @addressbook = []
   end
 
+  # Adds a person into addressbook array if the arg is a Person object
   def add(person)
     if person.class <= Person
       @addressbook << person
@@ -16,6 +18,7 @@ class AddressBook
     end
   end
 
+  
   def remove(name)
     @addressbook.each_with_index {|value, index| @addressbook.delete_at(index) if value.first_name == name.capitalize}
   end
